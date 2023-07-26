@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="PPLE EXPERIENCE">
+  <meta name="description" content="Seamless Event Planning, Connectivity, and Unforgettable Experiences at Your Fingertips!.">
+  <meta name="keywords" content="keyword1, keyword2, keyword3">
+  <meta name="author" content="PPLE APP">
+  <meta property="og:title" content="PPLE EXPERIENCE">
+  <meta property="og:description" content="Seamless Event Planning, Connectivity, and Unforgettable Experiences at Your Fingertips!">
+  <meta property="og:image" content="assets/pplelogo1.png">
+  <meta property="og:url" content="https://pple.app">
+  <title>ShareEvent</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="result"></div>
+    <div class="navbar">
+        <div class="navbar-logo">
+          <!-- Your logo image or text goes here -->
+          <a href="https://pple.app/" class="logo-link">
+          <img src="assets/pplelogo1.png" alt="logo1" class="logo-image"/>
+          </a>
+        </div>
+      </div>
+    <div class="main-container">
+        <div class="main-inner-container">
+            <div class="data-container">
+                <div class="contain">
+                <h3>PPLE Experience</h3>
+                <img class="event-image" id="eventImage"src="" alt="">
+                </div>
+                <div class="data-body">
+                    <h3 id="eventTitle"></h3>
+                    <div class="avatar-body">
+                        
+                        <img class="avatar-image" style="width: 64px; height: 64px; border-radius: 64px;" id="eventAvatar" src="" alt="">
+    
+                        <div class="avatar-title">
+                            <span id="eventFirstname"></span>
+                           
+                            <spa id="eventUsername">@</spa>
+                        
+                           
+                        </div>
+                        
+                        <div id="verificationContainer">
+                            <img id="verificationImage" class="verified" src="assets/Organizer.png" alt=""/>
+                          </div>
+                    </div>
+    
+                    <div class="time-container">
+                        <span>Start Time:</span>
+                        <!--<h3>10:00PM May 7</h3> -->
+                        <h3 id="startTime"></h3>
+                    </div>
+    
+                    <div class="location-container">
+                        <span>Location:</span>
+                        <h3 id="address" id="eventLocation"></h3>
+                    </div>
+                    <div class="experience-container">
+                        <span>About this Experience:</span>
+                        <p id="eventDescription"></p>
+                    </div>
+                
+    
+                    <div class="info-container">
+                        <div class="guest-container">
+                            <span>Guest Limit:</span>
+                          <h3 id="guestLimit"></h3>
+                       </div>
+                       
+                    </div>
+                    
+                    <div class="sticky">
+                     <button class="button-21" role="button" id="openModalBtn">Download App To Join!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="modal-overlay" id="closeModalBtn">
+        <div class="modal">
+         
+          <h4>Choose Device for Download</h4>
+      
+          <div class="store-container">
+          <a href="https://play.google.com/store/apps/details?id=com.live.pple">
+               <img src="../assets/Google.svg" alt="">
+          </a>
+  
+          <a href="https://apps.apple.com/us/app/ppleapp-invite-friends/id1491744979">
+               <img src="../assets/Apple.svg" alt="">
+           </a>
+        </div>
+        </div>
+        <div class="close" id="closeModalBtn">
+          x
+        </div>
+      </div>
+    
+  <script src="script.js"></script>
+</body>
+</html
