@@ -59,32 +59,48 @@ async function getEventDetails() {
   }
 
   function updateHTMLWithEventData(data) {
+    // Helper function to set text content and handle null elements
+    function setTextContent(elementId, text) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.textContent = text;
+      }
+    }
+  
+    // Helper function to set image source and handle null elements
+    function setImageSource(elementId, src) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.src = src;
+      }
+    }
+  
     // Update the elements in the HTML template with the received data
-    document.getElementById("result").textContent = JSON.stringify(data, null, 2);
-    document.getElementById("eventTitle").textContent = data?.event?.title || 'Event Title Not Available';
-    document.getElementById("eventFirstname").textContent = data?.event?.user?.firstname || 'Event firstname Not Available';
-    document.getElementById("eventLastname").textContent = data?.event?.user?.lastname || 'Event lastname Not Available';
-    document.getElementById("eventUsername").textContent = data?.event?.user?.username  || 'Event username Not Available';
-    document.getElementById("eventAvatar").src = data?.event?.user?.avatar || 'Event avatar Not Available';
-    document.getElementById("eventDescription").textContent = data?.event?.detail || 'Event Description Not Available';
-    document.getElementById("eventImage").src = data?.event?.mediaPosition1 || 'placeholder_image_url.png';
-    document.getElementById("eventLocation").textContent = data?.event?.location?.address || 'Event Location Not Available';
-    document.getElementById("guestLimit").textContent = data.guestLimit || 'guest limit not available';
-
+    setTextContent("eventTitle", data?.event?.title || 'Event Title Not Available');
+    setTextContent("eventFirstname", data?.events?.user?.firstname || 'Event firstname Not Available');
+    setTextContent("eventLastname", data?.events?.user?.lastname || 'Event lastname Not Available');
+    setTextContent("eventUsername", data?.events?.user?.email || 'Event username Not Available');
+    setImageSource("eventAvatar", data?.events?.user?.avatar || 'Event avatar Not Available');
+    setTextContent("eventDescription", data?.events?.detail || 'Event Description Not Available');
+    setImageSource("eventImage", data?.events?.mediaPosition1 || 'placeholder_image_url.png');
+    setTextContent("eventLocation", data?.events?.location?.address || 'Event Location Not Available');
+    setTextContent("guestLimit", data?.events?.guestLimit || 'guest limit not available');
+  
     // Update other elements as needed based on the data structure from the API
-
+  
     // Access and format the startDate
-  const startDate = data?.event?.startDate;
-  const formattedStartDate = startDate ? new Date(startDate).toLocaleString() : 'Start Date Not Available';
-  document.getElementById("startTime").textContent = formattedStartDate;
-
+    const startDate = data?.events.startDate;
+    const formattedStartDate = startDate ? new Date(startDate).toLocaleString() : 'Start Date Not Available';
+    setTextContent("startTime", formattedStartDate);
   }
-
+  
+  
   // Directly call the getEventDetails() function when the page loads
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", function() {
     getEventDetails();
   });
 
+  
 
   /*verified badge*/
   const verificationImage = document.getElementById("verificationImage");
