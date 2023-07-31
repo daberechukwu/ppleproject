@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="TICKET">
+    <meta name="description" content="Seamless Event Planning, Connectivity, and Unforgettable Experiences at Your Fingertips!.">
+    <meta name="keywords" content="Experience , event, Afrobeat">
+    <meta name="author" content="PPLE APP">
+    <meta property="og:title" content="TICKET">
+    <meta property="og:description" content="Seamless Event Planning, Connectivity, and Unforgettable Experiences at Your Fingertips!">
+    <meta property="og:image" content="assets/pplelogo1.png">
+    <meta property= 'og:image:width' content= "300">
+    <meta property=" og:image:height" content= "300">
+    <meta property="og:url" content="https://pple.app">
+    <title>ticket</title>
+    <link rel="stylesheet" href="css/style.css">
+ 
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-logo">
+          <!-- Your logo image or text goes here -->
+          <a href="https://pple.app/" class="logo-link">
+          <img src="assets/pplelogo1.png" alt="logo1" class="logo-image"/>
+          </a>
+        </div>
+      </div>
+      <div class="ticket">
+        <h2>TICKET INFORMATION</h2>
+        <div class="ticket-details"  >
+       <h5><strong>Event ID:</strong><a id="eventId"></a></h5>
+       <h5><strong>OrderREF:</strong><a id="eventRef"></a></h5>
+       <h5><strong>Payment Card:</strong><a id="eventCard"></a></p>
+       <h5><strong>QTY:</strong><a id="eventQty"></a></h5>
+       <h5><strong>Amount:</strong>$<a id="eventTotal"></a></h5>
+       <h5><strong> Transaction Date:</strong><a id="eventTransdate"></a></h5>
+      
+ 
+     </div>
+     <script>
+
+async function getEventDetails() {
+    try {
+      const apiUrl = "http://localhost:8585/api/v1/order/get-ticket-by-ref?orderRef=Oj60CxiqfLSi"
+      const response = await fetch(apiUrl);
+
+      if (response.ok && response.status === 200) {
+        const data = await response.json();
+        updateHTMLWithEventData(data);
+      } else {
+        console.log('Something is wrong: ' + response.status);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  function updateHTMLWithEventData(data) {
+    // Helper function to set text content and handle null elements
+    function setTextContent(elementId, text) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.textContent = text;
+      }
+    }
+  // Update the elements in the HTML template with the received data
+    setTextContent("eventId", data?.order?.eventId || 'Event id Not Available');
+    setTextContent("eventRef", data?.order?.orderRef|| 'Event firstname Not Available');
+    setTextContent("eventCard", data?.order?.paymentCardId|| 'Event payment card Not Available');
+    setTextContent("evenQty", data?.order?.quantity || 'Event quantity Not Available');
+    setTextContent("eventTotal", data?.order?.total || 'Event total amount Not Available');
+    setTextContent("eventTransdate", data?.order?.transDate || 'Event transdate Not Available');
+   
+  
+    // Update other elements as needed based on the data structure from the API
+  
+  
+   
+  }
+  
+  
+  // Directly call the getEventDetails() function when the page loads
+  document.addEventListener("DOMContentLoaded", function() {
+    getEventDetails();
+  });
+
+  
+     </script>
+</body>
+</html>

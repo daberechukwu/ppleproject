@@ -706,3 +706,67 @@ box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
   
   
       }
+
+
+      /*ticket design*/
+      /* Base styles */
+      .ticket {
+        text-align: center;
+        padding: 20px;
+        margin-top: 100px;
+        
+      }
+      
+      .ticket h2 {
+        margin-bottom: 20px;
+      }
+      
+      .ticket-details {
+        margin-bottom: 20px;
+      }
+      
+      .qrcode-container {
+        display: flex;
+        justify-content: center;
+      }
+      
+      button {
+        margin-top: 10px;
+      }
+      
+      .checked-in-message {
+        color: green;
+      }
+      
+      /* Mobile responsiveness */
+      @media (max-width: 480px) {
+        .ticket {
+          padding: 10px;
+          margin-top: 100px;
+         
+        }
+      
+        .ticket h2 {
+          font-size: 18px;
+          margin-bottom: 10px;
+        }
+      
+        .ticket-details {
+          margin-bottom: 10px;
+          font-size: 14px;
+        }
+      
+        .qrcode-container {
+          margin-bottom: 10px;
+        }
+      
+        button {
+          margin-top: 5px;
+          font-size: 14px;
+      
+        }
+      
+        .checked-in-message {
+          font-size: 14px;
+        }
+      }

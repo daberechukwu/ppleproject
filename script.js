@@ -117,3 +117,6 @@ async function getEventDetails() {
   
   const isVerified = false; // Replace this with your actual verification status
   showImageIfVerified(isVerified);
+
+
+
